@@ -1,0 +1,17 @@
+<div class="contenedor">
+  <form [formGroup] ="form">
+    <div class="formulario">
+      <div class="form-row" style="margin-top: 40px">
+        <div class="col">
+          <input type="number" formControlName="euros" name="euros" class="form-control" name="euros" required placeholder="USD">
+        </div>
+        <div class="col">
+          <input [(ngModel)]="dolares" class="form-control" name="dolares" placeholder="EU" disabled>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="submitbtn" align="center">
+    <button type="submit" class="btn btn-default btn-lg" (click)="get_rate()" [disabled]="!form.valid">CALCULATE</button>
+  </div>
+</div>

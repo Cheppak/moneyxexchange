@@ -1,0 +1,23 @@
+.btn {
+    background-color: gray; 
+    width: 30%;
+    color: #FFFFFF;
+}
+
+.contenedor {
+    margin-top: 200px;
+    background-color: lightgray;
+    height: 200px;
+    border-color: black;
+}
+
+.formulario{
+    background-color: lightgray;
+    height: 100px;
+    padding: 10px;
+}
+
+.submitbtn{
+    background-color: lightgray;
+    margin-top: 1px;
+}
