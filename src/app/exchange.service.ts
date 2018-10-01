@@ -7,14 +7,15 @@ import { HttpClient } from '@angular/common/http';
 
 export class ExchangeService {
   baseUrl: String = 'http://localhost:8080';
-  dolares: any;
   euros: number;
+  dolares: any;
 
   constructor(private httpClient: HttpClient) { }
-  get_rate() {
-    this.httpClient.get(this.baseUrl + '/cotizacion?value=' + this.euros).subscribe((res) => {
-      this.dolares = res;
-  });
+
+  getRate(euros: number) {
+    this.httpClient.get(this.baseUrl + '/cotizacion?value=' + euros).subscribe(data => this.dolares = data['rate'],
+     (err) => new Error(err));
+    return this.dolares;
   }
 
 }

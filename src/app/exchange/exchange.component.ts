@@ -1,30 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { ExchangeService } from '../exchange.service';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-exchange',
   templateUrl: './exchange.component.html',
-  styleUrls: ['./exchange.component.css']
+  styleUrls: ['./exchange.component.css'],
+  providers: [ ExchangeService ]
 })
 export class ExchangeComponent implements OnInit {
 
-  form: FormGroup;
-  
-  constructor(private service: ExchangeService, private fb: FormBuilder ) {
-    this.form = this.fb.group({
-      euros: ['', Validators.pattern('^[0-9]')]
-    });
+  euros: number;
+  dolares: any;
+
+  constructor(private service: ExchangeService ) {
   }
 
   ngOnInit() {
-    this.form = new FormGroup({
-      euros: new FormControl('', Validators.required)
-    });
   }
 
-  get_rate() {
-    this.service.get_rate();
+  onClickMe() {
+    this.dolares = this.service.getRate(this.euros);
   }
-
 }
